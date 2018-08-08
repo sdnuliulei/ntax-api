@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sdpost.ntax.api.bill.mapper.DeclarationInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sdpost.ntax.api.bill.model.DeclarationInfo" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="DECSTAUTS" property="decstauts" jdbcType="VARCHAR" />
+    <result column="DECTYPE" property="dectype" jdbcType="VARCHAR" />
+    <result column="CUSTID" property="custid" jdbcType="VARCHAR" />
+    <result column="CUSTTYPE" property="custtype" jdbcType="VARCHAR" />
+    <result column="REALTAXPAYMENT" property="realtaxpayment" jdbcType="DECIMAL" />
+    <result column="AMOUNT" property="amount" jdbcType="DECIMAL" />
+    <result column="AGENTTYPE" property="agenttype" jdbcType="VARCHAR" />
+    <result column="DUTYFREE" property="dutyfree" jdbcType="VARCHAR" />
+    <result column="TAXPRICETOTALUPPER" property="taxpricetotalupper" jdbcType="VARCHAR" />
+    <result column="TAXPRICETOTALLOWER" property="taxpricetotallower" jdbcType="DECIMAL" />
+    <result column="TAXRELIEFS" property="taxreliefs" jdbcType="DECIMAL" />
+    <result column="PAYABLETAX" property="payabletax" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="ISREMOTEAGENT" property="isremoteagent" jdbcType="VARCHAR" />
+    <result column="TRADEDATE" property="tradedate" jdbcType="VARCHAR" />
+    <result column="UPDATEDATE" property="updatedate" jdbcType="VARCHAR" />
+    <result column="OPERATORID" property="operatorid" jdbcType="VARCHAR" />
+    <result column="BRANCHORGID" property="branchorgid" jdbcType="VARCHAR" />
+    <result column="COUNTRYORGID" property="countryorgid" jdbcType="VARCHAR" />
+    <result column="CITYORGID" property="cityorgid" jdbcType="VARCHAR" />
+    <result column="BUYERNAME" property="buyername" jdbcType="VARCHAR" />
+    <result column="BUYERTAXPAYERID" property="buyertaxpayerid" jdbcType="VARCHAR" />
+    <result column="BUYERADDRESS" property="buyeraddress" jdbcType="VARCHAR" />
+    <result column="BUYERBANKID" property="buyerbankid" jdbcType="VARCHAR" />
+    <result column="BUYERPHONENO" property="buyerphoneno" jdbcType="VARCHAR" />
+    <result column="BUYERACCOUNTNO" property="buyeraccountno" jdbcType="VARCHAR" />
+    <result column="SALERNAME" property="salername" jdbcType="VARCHAR" />
+    <result column="SALERTAXPAYERID" property="salertaxpayerid" jdbcType="VARCHAR" />
+    <result column="SALERADDRESS" property="saleraddress" jdbcType="VARCHAR" />
+    <result column="SALERBANKID" property="salerbankid" jdbcType="VARCHAR" />
+    <result column="SALERPHONENO" property="salerphoneno" jdbcType="VARCHAR" />
+    <result column="SALERACCOUNTNO" property="saleraccountno" jdbcType="VARCHAR" />
+    <result column="SALERISONESELF" property="salerisoneself" jdbcType="VARCHAR" />
+    <result column="TAXTYPE" property="taxtype" jdbcType="VARCHAR" />
+    <result column="BMZORGCODE" property="bmzorgcode" jdbcType="VARCHAR" />
+    <result column="REALNATIONTAXAMOUNT" property="realnationtaxamount" jdbcType="DECIMAL" />
+    <result column="REALLOCALTAXAMOUNT" property="reallocaltaxamount" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DECSTAUTS, DECTYPE, CUSTID, CUSTTYPE, REALTAXPAYMENT, AMOUNT, AGENTTYPE, DUTYFREE, 
+    TAXPRICETOTALUPPER, TAXPRICETOTALLOWER, TAXRELIEFS, PAYABLETAX, REMARK, ISREMOTEAGENT, 
+    TRADEDATE, UPDATEDATE, OPERATORID, BRANCHORGID, COUNTRYORGID, CITYORGID, BUYERNAME, 
+    BUYERTAXPAYERID, BUYERADDRESS, BUYERBANKID, BUYERPHONENO, BUYERACCOUNTNO, SALERNAME, 
+    SALERTAXPAYERID, SALERADDRESS, SALERBANKID, SALERPHONENO, SALERACCOUNTNO, SALERISONESELF, 
+    TAXTYPE, BMZORGCODE, REALNATIONTAXAMOUNT, REALLOCALTAXAMOUNT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from GSDSAPP.T_DECLARATIONINFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.sdpost.ntax.api.bill.model.DeclarationInfo" >
+    insert into GSDSAPP.T_DECLARATIONINFO (ID, DECSTAUTS, DECTYPE, 
+      CUSTID, CUSTTYPE, REALTAXPAYMENT, 
+      AMOUNT, AGENTTYPE, DUTYFREE, 
+      TAXPRICETOTALUPPER, TAXPRICETOTALLOWER, 
+      TAXRELIEFS, PAYABLETAX, REMARK, 
+      ISREMOTEAGENT, TRADEDATE, UPDATEDATE, 
+      OPERATORID, BRANCHORGID, COUNTRYORGID, 
+      CITYORGID, BUYERNAME, BUYERTAXPAYERID, 
+      BUYERADDRESS, BUYERBANKID, BUYERPHONENO, 
+      BUYERACCOUNTNO, SALERNAME, SALERTAXPAYERID, 
+      SALERADDRESS, SALERBANKID, SALERPHONENO, 
+      SALERACCOUNTNO, SALERISONESELF, TAXTYPE, 
+      BMZORGCODE, REALNATIONTAXAMOUNT, REALLOCALTAXAMOUNT
+      )
+    values (#{id,jdbcType=VARCHAR}, #{decstauts,jdbcType=VARCHAR}, #{dectype,jdbcType=VARCHAR}, 
+      #{custid,jdbcType=VARCHAR}, #{custtype,jdbcType=VARCHAR}, #{realtaxpayment,jdbcType=DECIMAL}, 
+      #{amount,jdbcType=DECIMAL}, #{agenttype,jdbcType=VARCHAR}, #{dutyfree,jdbcType=VARCHAR}, 
+      #{taxpricetotalupper,jdbcType=VARCHAR}, #{taxpricetotallower,jdbcType=DECIMAL}, 
+      #{taxreliefs,jdbcType=DECIMAL}, #{payabletax,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{isremoteagent,jdbcType=VARCHAR}, #{tradedate,jdbcType=VARCHAR}, #{updatedate,jdbcType=VARCHAR}, 
+      #{operatorid,jdbcType=VARCHAR}, #{branchorgid,jdbcType=VARCHAR}, #{countryorgid,jdbcType=VARCHAR}, 
+      #{cityorgid,jdbcType=VARCHAR}, #{buyername,jdbcType=VARCHAR}, #{buyertaxpayerid,jdbcType=VARCHAR}, 
+      #{buyeraddress,jdbcType=VARCHAR}, #{buyerbankid,jdbcType=VARCHAR}, #{buyerphoneno,jdbcType=VARCHAR}, 
+      #{buyeraccountno,jdbcType=VARCHAR}, #{salername,jdbcType=VARCHAR}, #{salertaxpayerid,jdbcType=VARCHAR}, 
+      #{saleraddress,jdbcType=VARCHAR}, #{salerbankid,jdbcType=VARCHAR}, #{salerphoneno,jdbcType=VARCHAR}, 
+      #{saleraccountno,jdbcType=VARCHAR}, #{salerisoneself,jdbcType=VARCHAR}, #{taxtype,jdbcType=VARCHAR}, 
+      #{bmzorgcode,jdbcType=VARCHAR}, #{realnationtaxamount,jdbcType=DECIMAL}, #{reallocaltaxamount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sdpost.ntax.api.bill.model.DeclarationInfo" >
+    insert into GSDSAPP.T_DECLARATIONINFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="decstauts != null" >
+        DECSTAUTS,
+      </if>
+      <if test="dectype != null" >
+        DECTYPE,
+      </if>
+      <if test="custid != null" >
+        CUSTID,
+      </if>
+      <if test="custtype != null" >
+        CUSTTYPE,
+      </if>
+      <if test="realtaxpayment != null" >
+        REALTAXPAYMENT,
+      </if>
+      <if test="amount != null" >
+        AMOUNT,
+      </if>
+      <if test="agenttype != null" >
+        AGENTTYPE,
+      </if>
+      <if test="dutyfree != null" >
+        DUTYFREE,
+      </if>
+      <if test="taxpricetotalupper != null" >
+        TAXPRICETOTALUPPER,
+      </if>
+      <if test="taxpricetotallower != null" >
+        TAXPRICETOTALLOWER,
+      </if>
+      <if test="taxreliefs != null" >
+        TAXRELIEFS,
+      </if>
+      <if test="payabletax != null" >
+        PAYABLETAX,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="isremoteagent != null" >
+        ISREMOTEAGENT,
+      </if>
+      <if test="tradedate != null" >
+        TRADEDATE,
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE,
+      </if>
+      <if test="operatorid != null" >
+        OPERATORID,
+      </if>
+      <if test="branchorgid != null" >
+        BRANCHORGID,
+      </if>
+      <if test="countryorgid != null" >
+        COUNTRYORGID,
+      </if>
+      <if test="cityorgid != null" >
+        CITYORGID,
+      </if>
+      <if test="buyername != null" >
+        BUYERNAME,
+      </if>
+      <if test="buyertaxpayerid != null" >
+        BUYERTAXPAYERID,
+      </if>
+      <if test="buyeraddress != null" >
+        BUYERADDRESS,
+      </if>
+      <if test="buyerbankid != null" >
+        BUYERBANKID,
+      </if>
+      <if test="buyerphoneno != null" >
+        BUYERPHONENO,
+      </if>
+      <if test="buyeraccountno != null" >
+        BUYERACCOUNTNO,
+      </if>
+      <if test="salername != null" >
+        SALERNAME,
+      </if>
+      <if test="salertaxpayerid != null" >
+        SALERTAXPAYERID,
+      </if>
+      <if test="saleraddress != null" >
+        SALERADDRESS,
+      </if>
+      <if test="salerbankid != null" >
+        SALERBANKID,
+      </if>
+      <if test="salerphoneno != null" >
+        SALERPHONENO,
+      </if>
+      <if test="saleraccountno != null" >
+        SALERACCOUNTNO,
+      </if>
+      <if test="salerisoneself != null" >
+        SALERISONESELF,
+      </if>
+      <if test="taxtype != null" >
+        TAXTYPE,
+      </if>
+      <if test="bmzorgcode != null" >
+        BMZORGCODE,
+      </if>
+      <if test="realnationtaxamount != null" >
+        REALNATIONTAXAMOUNT,
+      </if>
+      <if test="reallocaltaxamount != null" >
+        REALLOCALTAXAMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="decstauts != null" >
+        #{decstauts,jdbcType=VARCHAR},
+      </if>
+      <if test="dectype != null" >
+        #{dectype,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null" >
+        #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="custtype != null" >
+        #{custtype,jdbcType=VARCHAR},
+      </if>
+      <if test="realtaxpayment != null" >
+        #{realtaxpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="agenttype != null" >
+        #{agenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyfree != null" >
+        #{dutyfree,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpricetotalupper != null" >
+        #{taxpricetotalupper,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpricetotallower != null" >
+        #{taxpricetotallower,jdbcType=DECIMAL},
+      </if>
+      <if test="taxreliefs != null" >
+        #{taxreliefs,jdbcType=DECIMAL},
+      </if>
+      <if test="payabletax != null" >
+        #{payabletax,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isremoteagent != null" >
+        #{isremoteagent,jdbcType=VARCHAR},
+      </if>
+      <if test="tradedate != null" >
+        #{tradedate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorid != null" >
+        #{operatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="branchorgid != null" >
+        #{branchorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="countryorgid != null" >
+        #{countryorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="cityorgid != null" >
+        #{cityorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="buyertaxpayerid != null" >
+        #{buyertaxpayerid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyeraddress != null" >
+        #{buyeraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerbankid != null" >
+        #{buyerbankid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerphoneno != null" >
+        #{buyerphoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="buyeraccountno != null" >
+        #{buyeraccountno,jdbcType=VARCHAR},
+      </if>
+      <if test="salername != null" >
+        #{salername,jdbcType=VARCHAR},
+      </if>
+      <if test="salertaxpayerid != null" >
+        #{salertaxpayerid,jdbcType=VARCHAR},
+      </if>
+      <if test="saleraddress != null" >
+        #{saleraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="salerbankid != null" >
+        #{salerbankid,jdbcType=VARCHAR},
+      </if>
+      <if test="salerphoneno != null" >
+        #{salerphoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="saleraccountno != null" >
+        #{saleraccountno,jdbcType=VARCHAR},
+      </if>
+      <if test="salerisoneself != null" >
+        #{salerisoneself,jdbcType=VARCHAR},
+      </if>
+      <if test="taxtype != null" >
+        #{taxtype,jdbcType=VARCHAR},
+      </if>
+      <if test="bmzorgcode != null" >
+        #{bmzorgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="realnationtaxamount != null" >
+        #{realnationtaxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="reallocaltaxamount != null" >
+        #{reallocaltaxamount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sdpost.ntax.api.bill.model.DeclarationInfo" >
+    update GSDSAPP.T_DECLARATIONINFO
+    <set >
+      <if test="decstauts != null" >
+        DECSTAUTS = #{decstauts,jdbcType=VARCHAR},
+      </if>
+      <if test="dectype != null" >
+        DECTYPE = #{dectype,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null" >
+        CUSTID = #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="custtype != null" >
+        CUSTTYPE = #{custtype,jdbcType=VARCHAR},
+      </if>
+      <if test="realtaxpayment != null" >
+        REALTAXPAYMENT = #{realtaxpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null" >
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="agenttype != null" >
+        AGENTTYPE = #{agenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyfree != null" >
+        DUTYFREE = #{dutyfree,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpricetotalupper != null" >
+        TAXPRICETOTALUPPER = #{taxpricetotalupper,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpricetotallower != null" >
+        TAXPRICETOTALLOWER = #{taxpricetotallower,jdbcType=DECIMAL},
+      </if>
+      <if test="taxreliefs != null" >
+        TAXRELIEFS = #{taxreliefs,jdbcType=DECIMAL},
+      </if>
+      <if test="payabletax != null" >
+        PAYABLETAX = #{payabletax,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isremoteagent != null" >
+        ISREMOTEAGENT = #{isremoteagent,jdbcType=VARCHAR},
+      </if>
+      <if test="tradedate != null" >
+        TRADEDATE = #{tradedate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE = #{updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorid != null" >
+        OPERATORID = #{operatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="branchorgid != null" >
+        BRANCHORGID = #{branchorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="countryorgid != null" >
+        COUNTRYORGID = #{countryorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="cityorgid != null" >
+        CITYORGID = #{cityorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        BUYERNAME = #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="buyertaxpayerid != null" >
+        BUYERTAXPAYERID = #{buyertaxpayerid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyeraddress != null" >
+        BUYERADDRESS = #{buyeraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerbankid != null" >
+        BUYERBANKID = #{buyerbankid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerphoneno != null" >
+        BUYERPHONENO = #{buyerphoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="buyeraccountno != null" >
+        BUYERACCOUNTNO = #{buyeraccountno,jdbcType=VARCHAR},
+      </if>
+      <if test="salername != null" >
+        SALERNAME = #{salername,jdbcType=VARCHAR},
+      </if>
+      <if test="salertaxpayerid != null" >
+        SALERTAXPAYERID = #{salertaxpayerid,jdbcType=VARCHAR},
+      </if>
+      <if test="saleraddress != null" >
+        SALERADDRESS = #{saleraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="salerbankid != null" >
+        SALERBANKID = #{salerbankid,jdbcType=VARCHAR},
+      </if>
+      <if test="salerphoneno != null" >
+        SALERPHONENO = #{salerphoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="saleraccountno != null" >
+        SALERACCOUNTNO = #{saleraccountno,jdbcType=VARCHAR},
+      </if>
+      <if test="salerisoneself != null" >
+        SALERISONESELF = #{salerisoneself,jdbcType=VARCHAR},
+      </if>
+      <if test="taxtype != null" >
+        TAXTYPE = #{taxtype,jdbcType=VARCHAR},
+      </if>
+      <if test="bmzorgcode != null" >
+        BMZORGCODE = #{bmzorgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="realnationtaxamount != null" >
+        REALNATIONTAXAMOUNT = #{realnationtaxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="reallocaltaxamount != null" >
+        REALLOCALTAXAMOUNT = #{reallocaltaxamount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sdpost.ntax.api.bill.model.DeclarationInfo" >
+    update GSDSAPP.T_DECLARATIONINFO
+    set DECSTAUTS = #{decstauts,jdbcType=VARCHAR},
+      DECTYPE = #{dectype,jdbcType=VARCHAR},
+      CUSTID = #{custid,jdbcType=VARCHAR},
+      CUSTTYPE = #{custtype,jdbcType=VARCHAR},
+      REALTAXPAYMENT = #{realtaxpayment,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      AGENTTYPE = #{agenttype,jdbcType=VARCHAR},
+      DUTYFREE = #{dutyfree,jdbcType=VARCHAR},
+      TAXPRICETOTALUPPER = #{taxpricetotalupper,jdbcType=VARCHAR},
+      TAXPRICETOTALLOWER = #{taxpricetotallower,jdbcType=DECIMAL},
+      TAXRELIEFS = #{taxreliefs,jdbcType=DECIMAL},
+      PAYABLETAX = #{payabletax,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      ISREMOTEAGENT = #{isremoteagent,jdbcType=VARCHAR},
+      TRADEDATE = #{tradedate,jdbcType=VARCHAR},
+      UPDATEDATE = #{updatedate,jdbcType=VARCHAR},
+      OPERATORID = #{operatorid,jdbcType=VARCHAR},
+      BRANCHORGID = #{branchorgid,jdbcType=VARCHAR},
+      COUNTRYORGID = #{countryorgid,jdbcType=VARCHAR},
+      CITYORGID = #{cityorgid,jdbcType=VARCHAR},
+      BUYERNAME = #{buyername,jdbcType=VARCHAR},
+      BUYERTAXPAYERID = #{buyertaxpayerid,jdbcType=VARCHAR},
+      BUYERADDRESS = #{buyeraddress,jdbcType=VARCHAR},
+      BUYERBANKID = #{buyerbankid,jdbcType=VARCHAR},
+      BUYERPHONENO = #{buyerphoneno,jdbcType=VARCHAR},
+      BUYERACCOUNTNO = #{buyeraccountno,jdbcType=VARCHAR},
+      SALERNAME = #{salername,jdbcType=VARCHAR},
+      SALERTAXPAYERID = #{salertaxpayerid,jdbcType=VARCHAR},
+      SALERADDRESS = #{saleraddress,jdbcType=VARCHAR},
+      SALERBANKID = #{salerbankid,jdbcType=VARCHAR},
+      SALERPHONENO = #{salerphoneno,jdbcType=VARCHAR},
+      SALERACCOUNTNO = #{saleraccountno,jdbcType=VARCHAR},
+      SALERISONESELF = #{salerisoneself,jdbcType=VARCHAR},
+      TAXTYPE = #{taxtype,jdbcType=VARCHAR},
+      BMZORGCODE = #{bmzorgcode,jdbcType=VARCHAR},
+      REALNATIONTAXAMOUNT = #{realnationtaxamount,jdbcType=DECIMAL},
+      REALLOCALTAXAMOUNT = #{reallocaltaxamount,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

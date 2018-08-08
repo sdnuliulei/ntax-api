@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="context1">
+        <!-- 取消自动生成注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection connectionURL="jdbc:oracle:thin:@192.169.0.34:1521:orcl" driverClass="oracle.jdbc.driver.OracleDriver"
+                        password="gsdsapp" userId="gsdsapp" />
+        <javaModelGenerator targetPackage="com.sdpost.ntax.api.bill.model" targetProject="src/main/java" />
+        <sqlMapGenerator targetPackage="com.sdpost.ntax.api.bill.mapper" targetProject="src/main/java" />
+        <javaClientGenerator targetPackage="com.sdpost.ntax.api.bill.mapper" targetProject="src/main/java" type="XMLMAPPER" />
+        <table schema="gsdsapp" tableName="T_DECLARATIONINFO" domainObjectName="DeclarationInfo"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" enableUpdateByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false" enableInsert="true"
+               enableSelectByPrimaryKey="true" >
+        </table>
+   </context>
+</generatorConfiguration>
